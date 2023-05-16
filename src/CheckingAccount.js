@@ -10,6 +10,7 @@
  * @param amount it's the only field of the class.
  *
  */
+// @ts-check
 export function CheckingAccount(amount) {
 
     this.balance = amount;
