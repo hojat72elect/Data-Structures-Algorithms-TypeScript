@@ -2,6 +2,7 @@
   "name": "data_structures_and_algorithms_javascript",
   "version": "1.0.0",
   "type": "module",
-  "dependencies": {
+  "devDependencies": {
+    "jest": "^29.5.0"
   }
 }
