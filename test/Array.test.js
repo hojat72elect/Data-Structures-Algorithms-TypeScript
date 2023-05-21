@@ -91,3 +91,38 @@ test('Mutating an Array', () => {
     expect(originalArray).toStrictEqual([1, 3, 7]);
 
 })
+
+test('Reversing an Array', () => {
+    const originalArray = [3, 7, 8, 2, 3, 4];
+    originalArray.reverse();
+
+    expect(originalArray).toStrictEqual([4, 3, 2, 8, 7, 3]);
+
+})
+
+test('Sorting an array of Strings', () => {
+    const originalArray = ["Hojat", "Helen", "Farzaneh", "Library", "Mall"];
+    originalArray.sort();
+
+    expect(originalArray).toStrictEqual(["Farzaneh", "Helen", "Hojat", "Library", "Mall"]);
+
+})
+
+test('The wrong way of sorting an array of numbers', () => {
+    const originalArray = [2, 7, 8, 2, 378, 45, 63, 45, 4];
+    originalArray.sort();
+
+    expect(originalArray).toStrictEqual([2, 2, 378, 4, 45, 45, 63, 7, 8]);
+})
+
+test('The correct way of sorting an array of numbers', () => {
+    const originalArray = [2, 7, 8, 2, 378, 45, 63, 45, 4];
+
+    function compare(num1, num2) {
+        return num1 - num2;
+    }
+
+    originalArray.sort(compare);
+
+    expect(originalArray).toStrictEqual([2, 2, 4, 7, 8, 45, 45, 63, 378]);
+})
