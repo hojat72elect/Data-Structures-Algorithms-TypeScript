@@ -17,8 +17,15 @@ class Stack {
         return this._dataStore.pop();
     }
 
+    peek() {
+        if (this.length === 0)
+            return "The stack is empty";
+        return this._dataStore[this.length - 1];
+    }
+
     clear() {
         this._dataStore = [];
+        this.length=0;
     }
 }
 
