@@ -2,7 +2,7 @@ class Stack {
 
     constructor() {
         this._dataStore = [];
-        this.length = this._dataStore.length;
+        this.length = 0;
     }
 
     push(element) {
