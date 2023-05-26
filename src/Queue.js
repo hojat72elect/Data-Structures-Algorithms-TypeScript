@@ -20,6 +20,8 @@ class Queue {
      * returned and removed from queue.
      */
     dequeue() {
+        if (this.length === 0)
+            throw new Error("The queue is empty!");
         this.length--;
         return this._dataStore.shift();
     }
