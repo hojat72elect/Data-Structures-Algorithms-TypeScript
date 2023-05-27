@@ -5,6 +5,15 @@ class Queue {
     }
 
     /**
+     * user can only read the length of Queue, can't write to it.
+     *
+     * @returns {number}
+     */
+    get length() {
+        return this._dataStore.length;
+    }
+
+    /**
      *
      * @param element will be added at the end of the queue.
      */
@@ -40,7 +49,6 @@ class Queue {
             return "The queue is empty";
         return this._dataStore[this._dataStore.length - 1];
     }
-
 
     toString() {
         let retStr = "";

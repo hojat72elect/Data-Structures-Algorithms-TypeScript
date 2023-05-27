@@ -5,9 +5,11 @@ test("simply enqueuing and dequeue to a queue will produce FIFO behavior", () =>
     const sut = new Queue();
 
     sut.enqueue("Toronto");
+    expect(sut.length).toBe(1);
     sut.enqueue("New York");
+    expect(sut.length).toBe(2);
     sut.enqueue("Paris");
-
+    expect(sut.length).toBe(3);
     expect(sut.dequeue()).toBe("Toronto");
     expect(sut.dequeue()).toBe("New York");
     expect(sut.dequeue()).toBe("Paris");
@@ -54,6 +56,7 @@ test("debugging is easier if you use toString() on your queues!", () => {
     sut.enqueue("Toronto");
     sut.enqueue("New York");
     sut.enqueue("Paris");
+    expect(sut.length).toBe(3);
     expect(sut.toString()).toBe("Toronto--New York--Paris--");
 
 });
@@ -64,8 +67,10 @@ test("Clearing a queue throws away all the data but keeps the reference to our q
     sut.enqueue("Toronto");
     sut.enqueue("New York");
     sut.enqueue("Paris");
+    expect(sut.length).toBe(3);
 
     sut.clear();
+    expect(sut.length).toBe(0);
     expect(() => {
         sut.dequeue();
     }).toThrow();
