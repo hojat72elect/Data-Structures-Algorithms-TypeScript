@@ -2,75 +2,71 @@ const Queue = require('../src/Queue');
 
 test("simply enqueuing and dequeue to a queue will produce FIFO behavior", () => {
 
-    const exampleQueue = new Queue();
+    const sut = new Queue();
 
-    exampleQueue.enqueue("Toronto");
-    expect(exampleQueue.length).toBe(1);
-    exampleQueue.enqueue("New York");
-    expect(exampleQueue.length).toBe(2);
-    exampleQueue.enqueue("Paris");
-    expect(exampleQueue.length).toBe(3);
-    expect(exampleQueue.dequeue()).toBe("Toronto");
-    expect(exampleQueue.dequeue()).toBe("New York");
-    expect(exampleQueue.dequeue()).toBe("Paris");
+    sut.enqueue("Toronto");
+    sut.enqueue("New York");
+    sut.enqueue("Paris");
+
+    expect(sut.dequeue()).toBe("Toronto");
+    expect(sut.dequeue()).toBe("New York");
+    expect(sut.dequeue()).toBe("Paris");
 
 });
 
 test("dequeue on an empty queue, throws an error", () => {
 
-    const exampleQueue = new Queue();
+    const sut = new Queue();
 
     expect(() => {
-        exampleQueue.dequeue();
+        sut.dequeue();
     }).toThrow();
 });
 
 test("Peeking into front or back of a queue is safe and doesn't have any side-effects.", () => {
 
-    const exampleQueue = new Queue();
-    expect(exampleQueue.peekFront()).toBe("The queue is empty");
-    expect(exampleQueue.peekBack()).toBe("The queue is empty");
+    const sut = new Queue();
+    expect(sut.peekFront()).toBe("The queue is empty");
+    expect(sut.peekBack()).toBe("The queue is empty");
 
 
-    exampleQueue.enqueue("Toronto");
+    sut.enqueue("Toronto");
 
-    expect(exampleQueue.peekFront()).toBe("Toronto");
-    expect(exampleQueue.peekBack()).toBe("Toronto");
+    expect(sut.peekFront()).toBe("Toronto");
+    expect(sut.peekBack()).toBe("Toronto");
 
-    exampleQueue.enqueue("New York");
+    sut.enqueue("New York");
 
-    expect(exampleQueue.peekFront()).toBe("Toronto");
-    expect(exampleQueue.peekBack()).toBe("New York");
+    expect(sut.peekFront()).toBe("Toronto");
+    expect(sut.peekBack()).toBe("New York");
 
-    exampleQueue.enqueue("Paris");
+    sut.enqueue("Paris");
 
-    expect(exampleQueue.peekFront()).toBe("Toronto");
-    expect(exampleQueue.peekBack()).toBe("Paris");
+    expect(sut.peekFront()).toBe("Toronto");
+    expect(sut.peekBack()).toBe("Paris");
 
 });
 
 test("debugging is easier if you use toString() on your queues!", () => {
 
-    const exampleQueue = new Queue();
+    const sut = new Queue();
 
-    exampleQueue.enqueue("Toronto");
-    exampleQueue.enqueue("New York");
-    exampleQueue.enqueue("Paris");
-    expect(exampleQueue.toString()).toBe("Toronto--New York--Paris--");
+    sut.enqueue("Toronto");
+    sut.enqueue("New York");
+    sut.enqueue("Paris");
+    expect(sut.toString()).toBe("Toronto--New York--Paris--");
 
 });
 
 test("Clearing a queue throws away all the data but keeps the reference to our queue", () => {
 
-    const exampleQueue = new Queue();
-    exampleQueue.enqueue("Toronto");
-    exampleQueue.enqueue("New York");
-    exampleQueue.enqueue("Paris");
-    expect(exampleQueue.length).toBe(3);
+    const sut = new Queue();
+    sut.enqueue("Toronto");
+    sut.enqueue("New York");
+    sut.enqueue("Paris");
 
-    exampleQueue.clear();
-    expect(exampleQueue.length).toBe(0);
+    sut.clear();
     expect(() => {
-        exampleQueue.dequeue();
+        sut.dequeue();
     }).toThrow();
 });

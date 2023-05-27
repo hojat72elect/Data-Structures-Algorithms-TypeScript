@@ -2,7 +2,6 @@ class Queue {
 
     constructor() {
         this._dataStore = [];
-        this.length = 0;
     }
 
     /**
@@ -11,7 +10,6 @@ class Queue {
      */
     enqueue(element) {
         this._dataStore.push(element);
-        this.length++;
     }
 
     /**
@@ -20,9 +18,8 @@ class Queue {
      * returned and removed from queue.
      */
     dequeue() {
-        if (this.length === 0)
+        if (this._dataStore.length === 0)
             throw new Error("The queue is empty!");
-        this.length--;
         return this._dataStore.shift();
     }
 
@@ -30,7 +27,7 @@ class Queue {
      * just peeking to see what is the first element in line.
      */
     peekFront() {
-        if (this.length === 0)
+        if (this._dataStore.length === 0)
             return "The queue is empty";
         return this._dataStore[0];
     }
@@ -39,9 +36,9 @@ class Queue {
      * Just peeking to see what is the last element in this line.
      */
     peekBack() {
-        if (this.length === 0)
+        if (this._dataStore.length === 0)
             return "The queue is empty";
-        return this._dataStore[this.length - 1];
+        return this._dataStore[this._dataStore.length - 1];
     }
 
 
@@ -55,7 +52,6 @@ class Queue {
 
     clear() {
         this._dataStore = [];
-        this.length = 0;
     }
 }
 
