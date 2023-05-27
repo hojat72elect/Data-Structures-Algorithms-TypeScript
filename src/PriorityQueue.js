@@ -44,6 +44,19 @@ class PriorityQueue {
 
     }
 
+    /**
+     *
+     * the first element of the queue (the oldest one) will be
+     * returned and removed from queue.
+     */
+    dequeue() {
+        if (this._dataStore.length === 0)
+            throw new Error("The queue is empty!");
+        this._dataStore.length--;
+        return this._dataStore.shift();
+    }
+
+
     toString() {
         let retStr = "";
         for (let i = 0; i < this._dataStore.length; ++i) {
