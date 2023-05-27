@@ -52,10 +52,8 @@ class PriorityQueue {
     dequeue() {
         if (this._dataStore.length === 0)
             throw new Error("The queue is empty!");
-        this._dataStore.length--;
         return this._dataStore.shift();
     }
-
 
     toString() {
         let retStr = "";
@@ -65,5 +63,7 @@ class PriorityQueue {
         return retStr;
     }
 }
+
+module.exports = PriorityQueue;
 
 
