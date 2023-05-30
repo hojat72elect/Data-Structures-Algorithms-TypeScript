@@ -78,6 +78,26 @@ class SinglyLinkedList {
         this.headNode = node;
         return ++this.length;
     }
+
+    /**
+     * Returns the index of the element passed; otherwise -1.
+     *
+     * @returns number
+     */
+    indexOf(element) {
+        if (this.isEmpty()) return -1;
+        let {currentNode, currentIndex} = {currentNode: this.headNode, currentIndex: 0};
+        while (currentNode) {
+            if (currentNode.data === element) {
+                return currentIndex;
+            }
+            currentNode = currentNode.next;
+            currentIndex++;
+        }
+        return -1;
+    }
+
+
 }
 
 module.exports = SinglyLinkedList;
