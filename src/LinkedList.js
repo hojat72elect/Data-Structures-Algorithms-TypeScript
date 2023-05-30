@@ -1,59 +1,82 @@
 class Node {
-    constructor(element) {
-        this.element = element;
+    constructor(data) {
+        this.data = data;
         this.next = null;
     }
 }
 
 /**
- * This linked list doesn't accept null values.
+ * you can initialize this linked list by providing a list of values to it.
+ * If the value you have provided to the constructor of this class isn't an
+ * instance of an Array, head and tail will be null.
  */
-class LinkedList {
-    constructor(headValue) {
-        this.head = new Node(headValue);
+class SinglyLinkedList {
+    constructor(listOfValues) {
+        this.headNode = null;
+        this.tailNode = null;
+        this.length = 0;
+
+        if (listOfValues instanceof Array) {
+            for (const value of listOfValues) {
+                this.addLast(value);
+            }
+        }
     }
 
     /**
-     * Give it the value of the node you're looking for, will return the first node with that value that it can find for you.
-     *
-     * @param item
-     * @return {Node}
+     * Returns the head's value, or null.
      */
-    find(item) {
-        let currentNode = this.head;
-        while (currentNode.element !== item) {
-            currentNode = currentNode.next;
-        }
-        return currentNode;
+    head() {
+        return this.headNode?.data ?? null;
     }
 
     /**
-     * finds the item and ads the new node after it.
-     *
-     * @param newElement
-     * @param item
+     * Returns the tail's value , or null.
      */
-    insert(newElement, item) {
-        let newNode = new Node(newElement);
-        let current = this.find(item);
-
-        newNode.next = current.next;
-        current.next = newNode;
-
+    tail() {
+        return this.tailNode?.data ?? null;
     }
 
-    remove() {
+    isEmpty() {
+        return this.length === 0;
     }
 
-    display() {
-        let currentNode = this.head;
-        let outputString = '';
-        while (!(currentNode == null)) {
-            outputString += `-${currentNode.element}-`;
-            currentNode = currentNode.next;
+    /**
+     * Adds an element at the end of the linked list and returns updated length.
+     *
+     * @param element
+     * @return number
+     */
+    addLast(element) {
+        // check if list is empty
+        if (this.isEmpty()) {
+            return this.addFirst(element);
         }
-        console.log(outputString);
+        const node = new Node(element);
+        this.tailNode.next = node;
+        this.tailNode = node;
+        return ++this.length;
+    }
+
+    /**
+     * Add a node at the beginning of the list and return updated length.
+     *
+     * @param element
+     * @return number
+     */
+    addFirst(element) {
+
+        const node = new Node(element);
+        // check if the list is empty.
+        if (this.isEmpty()) {
+            this.headNode = node;
+            return 1;
+        }
+        node.next = this.headNode;
+        this.headNode = node;
+        return ++this.length;
     }
 }
 
-module.exports = LinkedList;
+module.exports = SinglyLinkedList;
+module.exports = Node;
