@@ -6,9 +6,9 @@ class Node {
 }
 
 /**
- * you can initialize this linked list by providing a list of values to it.
- * If the value you have provided to the constructor of this class isn't an
- * instance of an Array, head and tail will be null.
+ * you can only initialize this linked list by
+ * providing a list of values to it. Otherwise, head
+ * and tail will be null.
  */
 class SinglyLinkedList {
     constructor(listOfValues) {
@@ -70,6 +70,8 @@ class SinglyLinkedList {
         // check if the list is empty.
         if (this.isEmpty()) {
             this.headNode = node;
+            this.tailNode = node;
+            this.length = 1;
             return 1;
         }
         node.next = this.headNode;
