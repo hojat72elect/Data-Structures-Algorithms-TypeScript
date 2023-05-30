@@ -97,6 +97,42 @@ class SinglyLinkedList {
         return -1;
     }
 
+    clear() {
+        this.headNode = null;
+        this.tailNode = null;
+        this.length = 0;
+    }
+
+    removeLast() {
+        if (this.length === 0) {
+            throw new Error("The Linked List is already empty!");
+        }
+        if (this.length === 1) {
+            this.clear();
+            return;
+        }
+
+        let currentNode = this.headNode;
+        while (currentNode.next.next) {
+            currentNode = currentNode.next;
+        }
+        currentNode.next = null;
+        this.tailNode = currentNode;
+        this.length--;
+    }
+
+    removeFirst() {
+        if (this.length === 0) {
+            throw new Error("The Linked List is already empty!");
+        }
+        if (this.length === 1) {
+            this.clear();
+            return;
+        }
+
+        this.headNode = this.headNode.next;
+        this.length--;
+    }
 
 }
 
