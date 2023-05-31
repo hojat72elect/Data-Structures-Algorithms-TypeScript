@@ -1,5 +1,3 @@
-// @ts-check
-
 /**
  * Right now, you can only initialize an empty Stack.
  * In this implementation I have used an Array.
