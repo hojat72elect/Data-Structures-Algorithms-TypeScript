@@ -1,47 +1,50 @@
+// @flow
 /**
  * Right now, you can only initialize an empty Stack.
  * In this implementation I have used an Array.
  * Our stacks currently support number, string, and also object.
  */
 class Stack {
+    dataStore: Array<any>;
+    length: number;
 
     constructor() {
-        this._dataStore = [];
+        this.dataStore = [];
         this.length = 0;
     }
 
     /**
      *
-     * @param {number|string|Object} element
+     * @param {any} element
      */
-    push(element) {
-        this._dataStore.push(element);
+    push(element: any) {
+        this.dataStore.push(element);
         this.length++;
     }
 
     /**
      *
-     * @returns {number|string|Object}
+     * @returns {any}
      */
-    pop() {
+    pop(): any {
         if (this.length === 0)
             throw new Error("An empty stack can't be popped!");
         this.length--;
-        return this._dataStore.pop();
+        return this.dataStore.pop();
     }
 
     /**
      *
-     * @returns {number|string|Object}
+     * @returns {any}
      */
-    peek() {
+    peek(): any {
         if (this.length === 0)
             return "The stack is empty";
-        return this._dataStore[this.length - 1];
+        return this.dataStore[this.length - 1];
     }
 
     clear() {
-        this._dataStore = [];
+        this.dataStore = [];
         this.length = 0;
     }
 }
