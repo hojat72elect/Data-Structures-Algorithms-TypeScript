@@ -1,5 +1,12 @@
+// @flow
+/**
+ * A single element of a PriorityQueue.
+ */
 class QueueElement {
-    constructor(value, priority) {
+    value: any;
+    priority: number;
+
+    constructor(value: any, priority: number) {
         this.value = value;
         this.priority = priority;
     }
@@ -8,14 +15,23 @@ class QueueElement {
 /**
  * New elements will be evaluated at enqueue time
  * and the queue is always sorted according to
- * priority.
+ * priority of its elements.
  */
 class PriorityQueue {
+
+    _dataStore: Array<any>;
+
     constructor() {
         this._dataStore = [];
     }
 
-    enqueue(elementValue, elementPriority) {
+    /**
+     * @param elementValue
+     * @param elementPriority
+     *
+     *  this is the most costly
+     */
+    enqueue(elementValue: any, elementPriority: number) {
         let inputElement = new QueueElement(elementValue, elementPriority);
 
         if (this._dataStore.length === 0) {
@@ -45,17 +61,16 @@ class PriorityQueue {
     }
 
     /**
-     *
      * the first element of the queue (the oldest one) will be
      * returned and removed from queue.
      */
-    dequeue() {
+    dequeue(): any {
         if (this._dataStore.length === 0)
             throw new Error("The queue is empty!");
         return this._dataStore.shift();
     }
 
-    toString() {
+    toString(): string {
         let retStr = "";
         for (let i = 0; i < this._dataStore.length; ++i) {
             retStr += `(${this._dataStore[i].value} , ${this._dataStore[i].priority}) -- `;
