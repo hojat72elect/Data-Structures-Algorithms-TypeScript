@@ -1,5 +1,12 @@
+// @flow
+/**
+ * The most basic definition of a singly linked Node. Just has some data that hosts in itself and also a refrence to the next Node.
+ */
 class Node {
-    constructor(data) {
+    data: any;
+    next: Node | null;
+
+    constructor(data: any) {
         this.data = data;
         this.next = null;
     }
@@ -11,33 +18,37 @@ class Node {
  * and tail will be null.
  */
 class SinglyLinkedList {
-    constructor(listOfValues) {
+
+    headNode: Node | null;
+    tailNode: Node | null;
+    length: number;
+
+    constructor(listOfValues: Array<any>) {
+
         this.headNode = null;
         this.tailNode = null;
         this.length = 0;
 
-        if (listOfValues instanceof Array) {
-            for (const value of listOfValues) {
-                this.addLast(value);
-            }
+        for (const value of listOfValues) {
+            this.addLast(value);
         }
     }
 
     /**
      * Returns the head's value, or null.
      */
-    head() {
+    head(): any | null {
         return this.headNode?.data ?? null;
     }
 
     /**
      * Returns the tail's value , or null.
      */
-    tail() {
+    tail(): any | null {
         return this.tailNode?.data ?? null;
     }
 
-    isEmpty() {
+    isEmpty(): boolean {
         return this.length === 0;
     }
 
@@ -45,26 +56,25 @@ class SinglyLinkedList {
      * Adds an element at the end of the linked list and returns updated length.
      *
      * @param element
-     * @return number
      */
-    addLast(element) {
+    addLast(element: any | null) {
         // check if list is empty
         if (this.isEmpty()) {
-            return this.addFirst(element);
+            this.addFirst(element);
         }
         const node = new Node(element);
-        this.tailNode.next = node;
+        if (this.tailNode != null) {
+            this.tailNode.next = node;
+        }
         this.tailNode = node;
-        return ++this.length;
     }
 
     /**
-     * Add a node at the beginning of the list and return updated length.
+     * Add a node at the beginning of the list.
      *
      * @param element
-     * @return number
      */
-    addFirst(element) {
+    addFirst(element: any | null) {
 
         const node = new Node(element);
         // check if the list is empty.
@@ -72,11 +82,9 @@ class SinglyLinkedList {
             this.headNode = node;
             this.tailNode = node;
             this.length = 1;
-            return 1;
         }
         node.next = this.headNode;
         this.headNode = node;
-        return ++this.length;
     }
 
     /**
@@ -84,7 +92,7 @@ class SinglyLinkedList {
      *
      * @returns number
      */
-    indexOf(element) {
+    indexOf(element: any | null): number {
         if (this.isEmpty()) return -1;
         let {currentNode, currentIndex} = {currentNode: this.headNode, currentIndex: 0};
         while (currentNode) {
@@ -103,7 +111,7 @@ class SinglyLinkedList {
         this.length = 0;
     }
 
-    removeLast() {
+    removeLast(): void {
         if (this.length === 0) {
             throw new Error("The Linked List is already empty!");
         }
@@ -113,15 +121,18 @@ class SinglyLinkedList {
         }
 
         let currentNode = this.headNode;
-        while (currentNode.next.next) {
+        while (currentNode != null && currentNode.next != null && currentNode.next.next) {
             currentNode = currentNode.next;
         }
-        currentNode.next = null;
+        if (currentNode != null) {
+            currentNode.next = null;
+        }
         this.tailNode = currentNode;
         this.length--;
+
     }
 
-    removeFirst() {
+    removeFirst(): void {
         if (this.length === 0) {
             throw new Error("The Linked List is already empty!");
         }
@@ -130,10 +141,12 @@ class SinglyLinkedList {
             return;
         }
 
-        this.headNode = this.headNode.next;
+        if (this.headNode != null) {
+            this.headNode = this.headNode.next;
+        }
+
         this.length--;
     }
-
 }
 
 module.exports = SinglyLinkedList;
