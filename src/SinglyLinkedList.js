@@ -61,12 +61,14 @@ class SinglyLinkedList {
         // check if list is empty
         if (this.isEmpty()) {
             this.addFirst(element);
+            return;
         }
         const node = new Node(element);
         if (this.tailNode != null) {
             this.tailNode.next = node;
         }
         this.tailNode = node;
+        this.length++;
     }
 
     /**
@@ -82,9 +84,11 @@ class SinglyLinkedList {
             this.headNode = node;
             this.tailNode = node;
             this.length = 1;
+            return;
         }
         node.next = this.headNode;
         this.headNode = node;
+        this.length++;
     }
 
     /**

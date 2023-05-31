@@ -21,7 +21,6 @@ test("singly linked list initialization", () => {
     expect(sut.head()).toBe(3);
     expect(sut.tail()).toBe(4);
     expect(sut.length).toBe(5);
-    expect(sut.addLast(6)).toBe(6)
     expect(sut.tailNode.next).toBe(null);
     expect(sut.indexOf(8)).toBe(2);
     expect(sut.indexOf(4)).toBe(4);
