@@ -4,8 +4,8 @@
  * In this implementation I have used an Array.
  * Our stacks currently support number, string, and also object.
  */
-class Stack {
-    dataStore: Array<any>;
+class Stack<T> {
+    dataStore: Array<T>;
     length: number;
 
     constructor() {
@@ -17,7 +17,7 @@ class Stack {
      *
      * @param {any} element
      */
-    push(element: any) {
+    push(element: T) {
         this.dataStore.push(element);
         this.length++;
     }
@@ -26,7 +26,7 @@ class Stack {
      *
      * @returns {any}
      */
-    pop(): any {
+    pop(): T {
         if (this.length === 0)
             throw new Error("An empty stack can't be popped!");
         this.length--;
@@ -37,7 +37,7 @@ class Stack {
      *
      * @returns {any}
      */
-    peek(): any {
+    peek(): T | string {
         if (this.length === 0)
             return "The stack is empty";
         return this.dataStore[this.length - 1];
