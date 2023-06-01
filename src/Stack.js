@@ -1,8 +1,8 @@
 // @flow
 /**
- * Right now, you can only initialize an empty Stack.
- * In this implementation I have used an Array.
- * Our stacks currently support number, string, and also object.
+ * @template T : to let the JSDoc know a generic has been used here.
+ *
+ * Right now you can only initialize an empty Stack; with generic type.
  */
 class Stack<T> {
     dataStore: Array<T>;
@@ -15,7 +15,7 @@ class Stack<T> {
 
     /**
      *
-     * @param {any} element
+     * @param {T} element
      */
     push(element: T) {
         this.dataStore.push(element);
@@ -24,7 +24,7 @@ class Stack<T> {
 
     /**
      *
-     * @returns {any}
+     * @returns {T}
      */
     pop(): T {
         if (this.length === 0)
@@ -35,7 +35,7 @@ class Stack<T> {
 
     /**
      *
-     * @returns {any}
+     * @returns {T|string}
      */
     peek(): T | string {
         if (this.length === 0)
