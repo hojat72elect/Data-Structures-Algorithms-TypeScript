@@ -1,8 +1,5 @@
 // @flow
 /**
- *
- * todo: should be migrated to generics (I wasn't able to do that).
- *
  * The most basic definition of a singly linked Node. Just has some data that hosts in itself and also a reference to the next Node.
  */
 class Node<T> {
@@ -20,13 +17,13 @@ class Node<T> {
  * providing a list of values to it. Otherwise, head
  * and tail will be null.
  */
-class SinglyLinkedList {
+class SinglyLinkedList<T> {
 
-    headNode: Node<any> | null;
-    tailNode: Node<any> | null;
+    headNode: Node<T> | null;
+    tailNode: Node<T> | null;
     length: number;
 
-    constructor(listOfValues: Array<any>) {
+    constructor(listOfValues: Array<T>) {
 
         this.headNode = null;
         this.tailNode = null;
@@ -60,13 +57,13 @@ class SinglyLinkedList {
      *
      * @param element
      */
-    addLast(element: any | null) {
+    addLast(element: T) {
         // check if list is empty
         if (this.isEmpty()) {
             this.addFirst(element);
             return;
         }
-        const node = new Node(element);
+        const node: Node<T> | null = new Node(element);
         if (this.tailNode != null) {
             this.tailNode.next = node;
         }
@@ -79,7 +76,7 @@ class SinglyLinkedList {
      *
      * @param element
      */
-    addFirst(element: any | null) {
+    addFirst(element: T) {
 
         const node = new Node(element);
         // check if the list is empty.
