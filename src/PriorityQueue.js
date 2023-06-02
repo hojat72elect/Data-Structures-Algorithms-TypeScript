@@ -2,7 +2,7 @@
 /**
  * A single element of a PriorityQueue.
  */
-class QueueElement {
+class PriorityQueueElement {
     value: any;
     priority: number;
 
@@ -14,7 +14,7 @@ class QueueElement {
 
 /**
  * New elements will be evaluated at enqueue time
- * and the queue is always sorted according to
+ * and the queue is always sorted according to the
  * priority of its elements.
  */
 class PriorityQueue {
@@ -32,7 +32,7 @@ class PriorityQueue {
      *  this is the most costly
      */
     enqueue(elementValue: any, elementPriority: number) {
-        let inputElement = new QueueElement(elementValue, elementPriority);
+        let inputElement = new PriorityQueueElement(elementValue, elementPriority);
 
         if (this._dataStore.length === 0) {
             this._dataStore.push(inputElement);
