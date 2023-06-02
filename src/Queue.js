@@ -1,4 +1,7 @@
 // @flow
+/**
+ * @template T : to let the JSDoc know a generic has been used here.
+ */
 class Queue<T> {
 
     _dataStore: Array<T>;
@@ -15,14 +18,14 @@ class Queue<T> {
     }
 
     /**
-     * @param element will be added at the end of the queue.
+     * @param {T} element will be added at the end of the queue.
      */
     enqueue(element: T) {
         this._dataStore.push(element);
     }
 
     /**
-     * @returns the first element of the queue (the oldest one) will be
+     * @returns {T} the first element of the queue (the oldest one) will be
      * returned and removed from queue.
      */
     dequeue(): T {
@@ -32,7 +35,7 @@ class Queue<T> {
     }
 
     /**
-     * @returns Just peeking to see what is the first element in line.
+     * @returns {T|string} Just peeking to see what is the first element in line.
      */
     peekFront(): T | string {
         if (this._dataStore.length === 0)
@@ -41,7 +44,7 @@ class Queue<T> {
     }
 
     /**
-     * @returns Just peeking to see what is the last element in this line.
+     * @returns {T|string} Just peeking to see what is the last element in this line.
      */
     peekBack(): T | string {
         if (this._dataStore.length === 0)
@@ -50,7 +53,7 @@ class Queue<T> {
     }
 
     /**
-     * @returns string representation of the Queue.
+     * @returns {string} string representation of the Queue.
      */
     toString(): string {
         let retStr = "";
