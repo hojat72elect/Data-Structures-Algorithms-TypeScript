@@ -1,7 +1,7 @@
 // @flow
-class Queue {
+class Queue<T> {
 
-    _dataStore: Array<any>;
+    _dataStore: Array<T>;
 
     constructor() {
         this._dataStore = [];
@@ -17,7 +17,7 @@ class Queue {
     /**
      * @param element will be added at the end of the queue.
      */
-    enqueue(element: any) {
+    enqueue(element: T) {
         this._dataStore.push(element);
     }
 
@@ -25,7 +25,7 @@ class Queue {
      * @returns the first element of the queue (the oldest one) will be
      * returned and removed from queue.
      */
-    dequeue(): any {
+    dequeue(): T {
         if (this._dataStore.length === 0)
             throw new Error("The queue is empty!");
         return this._dataStore.shift();
@@ -34,7 +34,7 @@ class Queue {
     /**
      * @returns Just peeking to see what is the first element in line.
      */
-    peekFront(): any {
+    peekFront(): T | string {
         if (this._dataStore.length === 0)
             return "The queue is empty";
         return this._dataStore[0];
@@ -43,7 +43,7 @@ class Queue {
     /**
      * @returns Just peeking to see what is the last element in this line.
      */
-    peekBack(): any {
+    peekBack(): T | string {
         if (this._dataStore.length === 0)
             return "The queue is empty";
         return this._dataStore[this._dataStore.length - 1];
@@ -55,7 +55,9 @@ class Queue {
     toString(): string {
         let retStr = "";
         for (let i = 0; i < this._dataStore.length; ++i) {
-            retStr += this._dataStore[i] + "--"
+            let currentNodeValue: any = this._dataStore[i]; //type casting in JS is implicit
+
+            retStr += `${currentNodeValue}--`;
         }
         return retStr;
     }
