@@ -2,11 +2,11 @@
 /**
  * A single element of a PriorityQueue.
  */
-class PriorityQueueElement {
-    value: any;
+class PriorityQueueElement<T> {
+    value: T;
     priority: number;
 
-    constructor(value: any, priority: number) {
+    constructor(value: T, priority: number) {
         this.value = value;
         this.priority = priority;
     }
