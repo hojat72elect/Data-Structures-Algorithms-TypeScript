@@ -3,7 +3,7 @@
  *
  * todo: should be migrated to generics (I wasn't able to do that).
  *
- * The most basic definition of a singly linked Node. Just has some data that hosts in itself and also a refrence to the next Node.
+ * The most basic definition of a singly linked Node. Just has some data that hosts in itself and also a reference to the next Node.
  */
 class Node {
     data: any;

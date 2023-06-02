@@ -17,9 +17,9 @@ class PriorityQueueElement<T> {
  * and the queue is always sorted according to the
  * priority of its elements.
  */
-class PriorityQueue {
+class PriorityQueue<T> {
 
-    _dataStore: Array<any>;
+    _dataStore: Array<PriorityQueueElement<T>>;
 
     constructor() {
         this._dataStore = [];
@@ -31,7 +31,7 @@ class PriorityQueue {
      *
      *  this is the most costly
      */
-    enqueue(elementValue: any, elementPriority: number) {
+    enqueue(elementValue: T, elementPriority: number) {
         let inputElement = new PriorityQueueElement(elementValue, elementPriority);
 
         if (this._dataStore.length === 0) {
@@ -64,7 +64,7 @@ class PriorityQueue {
      * the first element of the queue (the oldest one) will be
      * returned and removed from queue.
      */
-    dequeue(): any {
+    dequeue(): PriorityQueueElement<T> {
         if (this._dataStore.length === 0)
             throw new Error("The queue is empty!");
         return this._dataStore.shift();
@@ -73,7 +73,8 @@ class PriorityQueue {
     toString(): string {
         let retStr = "";
         for (let i = 0; i < this._dataStore.length; ++i) {
-            retStr += `(${this._dataStore[i].value} , ${this._dataStore[i].priority}) -- `;
+            let currentNodeValue: any = this._dataStore[i].value;
+            retStr += `(${currentNodeValue} , ${this._dataStore[i].priority}) -- `;
         }
         return retStr;
     }
