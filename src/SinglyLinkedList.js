@@ -37,14 +37,14 @@ class SinglyLinkedList<T> {
     /**
      * Returns the head's value, or null.
      */
-    head(): any | null {
+    head(): T | null {
         return this.headNode?.data ?? null;
     }
 
     /**
      * Returns the tail's value , or null.
      */
-    tail(): any | null {
+    tail(): T | null {
         return this.tailNode?.data ?? null;
     }
 
@@ -96,7 +96,7 @@ class SinglyLinkedList<T> {
      *
      * @returns number
      */
-    indexOf(element: any | null): number {
+    indexOf(element: T): number {
         if (this.isEmpty()) return -1;
         let {currentNode, currentIndex} = {currentNode: this.headNode, currentIndex: 0};
         while (currentNode) {
