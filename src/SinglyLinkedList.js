@@ -5,11 +5,11 @@
  *
  * The most basic definition of a singly linked Node. Just has some data that hosts in itself and also a reference to the next Node.
  */
-class Node {
-    data: any;
-    next: Node | null;
+class Node<T> {
+    data: T;
+    next: Node<T> | null;
 
-    constructor(data: any) {
+    constructor(data: T) {
         this.data = data;
         this.next = null;
     }
@@ -22,8 +22,8 @@ class Node {
  */
 class SinglyLinkedList {
 
-    headNode: Node | null;
-    tailNode: Node | null;
+    headNode: Node<any> | null;
+    tailNode: Node<any> | null;
     length: number;
 
     constructor(listOfValues: Array<any>) {
