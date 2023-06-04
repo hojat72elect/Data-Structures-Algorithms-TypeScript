@@ -1,5 +1,7 @@
 // @flow
 /**
+ *
+ * TODO: this isn't a good implementation; should be migrated to JS objects.
  * A Key-Value pair database that's supposed to be a better version
  * of JS Objects.
  *
