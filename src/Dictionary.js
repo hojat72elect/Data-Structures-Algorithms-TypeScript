@@ -1,3 +1,9 @@
+/**
+ * A Key-Value pair database that's supposed to be a better version
+ * of JS Objects.
+ *
+ * @type {Dictionary|{}}
+ */
 class Dictionary {
     _dataStore;
 
@@ -17,12 +23,30 @@ class Dictionary {
         delete this._dataStore[key];
     }
 
+    /**
+     *  The shown result is already sorted according to keys (incrementally).
+     * @returns {string}
+     */
     showAll() {
         let retStr = "";
-        (Object.keys(this._dataStore)).forEach((key) => {
+        (Object.keys(this._dataStore).sort()).forEach((key) => {
             retStr += `* ${key} -> ${this._dataStore[key]} *`;
         })
         return retStr;
+    }
+
+    count() {
+        let n = 0;
+        (Object.keys(this._dataStore)).forEach((key) => {
+            n++;
+        })
+        return n;
+    }
+
+    clear() {
+        (Object.keys(this._dataStore)).forEach((key) => {
+            delete this._dataStore[key];
+        })
     }
 }
 
