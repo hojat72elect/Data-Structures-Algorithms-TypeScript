@@ -12,15 +12,15 @@ class Dictionary<K, V> {
         this._dataStore = [];
     }
 
-    add(key:any, value:V) {
+    add(key:K, value:V) {
         this._dataStore[key] = value;
     }
 
-    find(key:any):V {
+    find(key:K):V {
         return this._dataStore[key];
     }
 
-    remove(key:any) {
+    remove(key:K) {
         delete this._dataStore[key];
     }
 
