@@ -1,11 +1,11 @@
 /**
  * The most basic definition of a singly linked Node. Just has some data that hosts in itself and also a reference to the next Node.
  */
-class Node {
-    data;
-    next;
+class LinkedListNode {
+    data: any;
+    next: LinkedListNode;
 
-    constructor(data) {
+    constructor(data: any) {
         this.data = data;
         this.next = null;
     }
@@ -18,11 +18,11 @@ class Node {
  */
 class SinglyLinkedList {
 
-    headNode;
-    tailNode;
-    length;
+    headNode: LinkedListNode;
+    tailNode: LinkedListNode;
+    length: number;
 
-    constructor(listOfValues) {
+    constructor(listOfValues: any[]) {
 
         this.headNode = null;
         this.tailNode = null;
@@ -36,18 +36,18 @@ class SinglyLinkedList {
     /**
      * Returns the head's value, or null.
      */
-    head() {
+    head(): any {
         return this.headNode?.data ?? null;
     }
 
     /**
      * Returns the tail's value , or null.
      */
-    tail() {
+    tail(): any {
         return this.tailNode?.data ?? null;
     }
 
-    isEmpty() {
+    isEmpty(): boolean {
         return this.length === 0;
     }
 
@@ -56,13 +56,13 @@ class SinglyLinkedList {
      *
      * @param element
      */
-    addLast(element) {
+    addLast(element: any) {
         // check if list is empty
         if (this.isEmpty()) {
             this.addFirst(element);
             return;
         }
-        const node = new Node(element);
+        const node = new LinkedListNode(element);
         if (this.tailNode != null) {
             this.tailNode.next = node;
         }
@@ -75,9 +75,9 @@ class SinglyLinkedList {
      *
      * @param element
      */
-    addFirst(element) {
+    addFirst(element: any) {
 
-        const node = new Node(element);
+        const node = new LinkedListNode(element);
         // check if the list is empty.
         if (this.isEmpty()) {
             this.headNode = node;
@@ -95,7 +95,7 @@ class SinglyLinkedList {
      *
      * @returns number
      */
-    indexOf(element) {
+    indexOf(element: any) {
         if (this.isEmpty()) return -1;
         let {currentNode, currentIndex} = {currentNode: this.headNode, currentIndex: 0};
         while (currentNode) {
@@ -114,7 +114,7 @@ class SinglyLinkedList {
         this.length = 0;
     }
 
-    removeLast(){
+    removeLast() {
         if (this.length === 0) {
             throw new Error("The Linked List is already empty!");
         }
