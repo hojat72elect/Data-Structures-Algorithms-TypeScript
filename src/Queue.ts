@@ -1,4 +1,4 @@
-class Queue {
+export class Queue {
 
     private dataStore: any[];
 
@@ -65,5 +65,3 @@ class Queue {
         this.dataStore = [];
     }
 }
-
-module.exports = Queue;

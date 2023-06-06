@@ -7,3 +7,4 @@ lib/
 /test/Dictionary.test.js
 /test/Object.test.js
 /src/Queue.js
+/test/Queue.test.js
