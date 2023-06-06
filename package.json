@@ -7,7 +7,11 @@
   "jest": {
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest"
-    }
+    },
+    "testPathIgnorePatterns": [
+      ".d.ts",
+      ".js"
+    ]
   },
   "version": "1.0.0",
   "type": "module",
