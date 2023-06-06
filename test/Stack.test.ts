@@ -1,4 +1,4 @@
-import {Stack} from "../src/ts/Stack";
+import {Stack} from "../src/Stack";
 
 describe('Stack unit tests', () => {
 

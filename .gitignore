@@ -1,6 +1,6 @@
 node_modules/
 lib/
-/src/ts/Stack.js
+/src/Stack.js
 /test/String.test.js
 /test/Stack.test.js
 /test/Array.test.js
