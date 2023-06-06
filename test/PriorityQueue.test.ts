@@ -1,4 +1,4 @@
-const PriorityQueue = require('../src/PriorityQueue');
+import {PriorityQueue} from "../src/PriorityQueue";
 
 test("PriorityQueue is pretty much like a normal queue but treats elements according to their priorities", () => {
 

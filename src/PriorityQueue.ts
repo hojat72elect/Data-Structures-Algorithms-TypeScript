@@ -2,10 +2,10 @@
  * A single element of a PriorityQueue.
  */
 class PriorityQueueElement {
-    value;
-    priority;
+    value: any;
+    priority: number;
 
-    constructor(value, priority) {
+    constructor(value: any, priority: number) {
         this.value = value;
         this.priority = priority;
     }
@@ -16,9 +16,9 @@ class PriorityQueueElement {
  * and the queue is always sorted according to the
  * priority of its elements.
  */
-class PriorityQueue {
+export class PriorityQueue {
 
-    _dataStore;
+    _dataStore: PriorityQueueElement[];
 
     constructor() {
         this._dataStore = [];
@@ -30,7 +30,7 @@ class PriorityQueue {
      *
      *  this is the most costly
      */
-    enqueue(elementValue, elementPriority) {
+    enqueue(elementValue: any, elementPriority: number) {
         let inputElement = new PriorityQueueElement(elementValue, elementPriority);
 
         if (this._dataStore.length === 0) {
@@ -63,13 +63,13 @@ class PriorityQueue {
      * the first element of the queue (the oldest one) will be
      * returned and removed from queue.
      */
-    dequeue() {
+    dequeue(): PriorityQueueElement {
         if (this._dataStore.length === 0)
             throw new Error("The queue is empty!");
         return this._dataStore.shift();
     }
 
-    toString() {
+    toString(): string {
         let retStr = "";
         for (let i = 0; i < this._dataStore.length; ++i) {
             let currentNodeValue = this._dataStore[i].value;
@@ -78,7 +78,4 @@ class PriorityQueue {
         return retStr;
     }
 }
-
-module.exports = PriorityQueue;
-
 
