@@ -1,5 +1,5 @@
 node_modules/
 lib/
-/src/ts/test/Stack.test.js
 /src/ts/Stack.js
 /test/String.test.js
+/test/Stack.test.js
