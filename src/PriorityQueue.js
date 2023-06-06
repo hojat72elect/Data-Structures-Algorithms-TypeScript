@@ -72,7 +72,7 @@ class PriorityQueue {
     toString() {
         let retStr = "";
         for (let i = 0; i < this._dataStore.length; ++i) {
-            let currentNodeValue: any = this._dataStore[i].value;
+            let currentNodeValue = this._dataStore[i].value;
             retStr += `(${currentNodeValue} , ${this._dataStore[i].priority}) -- `;
         }
         return retStr;

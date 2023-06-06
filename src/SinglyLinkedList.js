@@ -95,7 +95,7 @@ class SinglyLinkedList {
      *
      * @returns number
      */
-    indexOf(element): number {
+    indexOf(element) {
         if (this.isEmpty()) return -1;
         let {currentNode, currentIndex} = {currentNode: this.headNode, currentIndex: 0};
         while (currentNode) {

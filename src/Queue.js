@@ -55,7 +55,7 @@ class Queue {
     toString() {
         let retStr = "";
         for (let i = 0; i < this._dataStore.length; ++i) {
-            let currentNodeValue: any = this._dataStore[i]; //type casting in JS is implicit
+            let currentNodeValue = this._dataStore[i]; //type casting in JS is implicit
 
             retStr += `${currentNodeValue}--`;
         }
