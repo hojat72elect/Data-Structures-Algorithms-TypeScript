@@ -4,3 +4,4 @@ lib/
 /test/String.test.js
 /test/Stack.test.js
 /test/Array.test.js
+/test/Dictionary.test.js
