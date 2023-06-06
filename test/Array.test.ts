@@ -62,12 +62,12 @@ describe('Just playing with built-in Array in JS', () => {
         expect(firstArray.splice(2, 2)).toStrictEqual([8, 5]);
     })
 
-    // test('we can also use splice to add elements in the middle fo an Array', () => {
-    //     const firstArray = [3, 8, 5, 4, 3, 7, 8, 4, 5, 15];
-    //     const newElements = [-1, -1]
-    //     firstArray.splice(4, 6, newElements)
-    //     expect(firstArray).toStrictEqual([3, 8, 5, 4, [-1, -1]]);
-    // })
+    test('we can also use splice to add elements in the middle fo an Array', () => {
+        const firstArray = [3, 8, 5, 4, 3, 7, 8, 4, 5, 15];
+        const newElements = [-1, -1]
+        firstArray.splice(4, 6, ...newElements);
+        expect(firstArray).toStrictEqual([3, 8, 5, 4, -1, -1]);
+    })
 
     test('Mutating an Array', () => {
         const originalArray = [3, 7, 8];
