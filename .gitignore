@@ -1,4 +1,4 @@
 node_modules/
 lib/
-/src/ts/StackTS.js
 /src/ts/test/Stack.test.js
+/src/ts/Stack.js
