@@ -1,12 +1,11 @@
-// @flow
 /**
  * The most basic definition of a singly linked Node. Just has some data that hosts in itself and also a reference to the next Node.
  */
-class Node<T> {
-    data: T;
-    next: Node<T> | null;
+class Node {
+    data;
+    next;
 
-    constructor(data: T) {
+    constructor(data) {
         this.data = data;
         this.next = null;
     }
@@ -17,13 +16,13 @@ class Node<T> {
  * providing a list of values to it. Otherwise, head
  * and tail will be null.
  */
-class SinglyLinkedList<T> {
+class SinglyLinkedList {
 
-    headNode: Node<T> | null;
-    tailNode: Node<T> | null;
-    length: number;
+    headNode;
+    tailNode;
+    length;
 
-    constructor(listOfValues: Array<T>) {
+    constructor(listOfValues) {
 
         this.headNode = null;
         this.tailNode = null;
@@ -37,18 +36,18 @@ class SinglyLinkedList<T> {
     /**
      * Returns the head's value, or null.
      */
-    head(): T | null {
+    head() {
         return this.headNode?.data ?? null;
     }
 
     /**
      * Returns the tail's value , or null.
      */
-    tail(): T | null {
+    tail() {
         return this.tailNode?.data ?? null;
     }
 
-    isEmpty(): boolean {
+    isEmpty() {
         return this.length === 0;
     }
 
@@ -57,13 +56,13 @@ class SinglyLinkedList<T> {
      *
      * @param element
      */
-    addLast(element: T) {
+    addLast(element) {
         // check if list is empty
         if (this.isEmpty()) {
             this.addFirst(element);
             return;
         }
-        const node: Node<T> | null = new Node(element);
+        const node = new Node(element);
         if (this.tailNode != null) {
             this.tailNode.next = node;
         }
@@ -76,7 +75,7 @@ class SinglyLinkedList<T> {
      *
      * @param element
      */
-    addFirst(element: T) {
+    addFirst(element) {
 
         const node = new Node(element);
         // check if the list is empty.
@@ -96,7 +95,7 @@ class SinglyLinkedList<T> {
      *
      * @returns number
      */
-    indexOf(element: T): number {
+    indexOf(element): number {
         if (this.isEmpty()) return -1;
         let {currentNode, currentIndex} = {currentNode: this.headNode, currentIndex: 0};
         while (currentNode) {
@@ -115,7 +114,7 @@ class SinglyLinkedList<T> {
         this.length = 0;
     }
 
-    removeLast(): void {
+    removeLast(){
         if (this.length === 0) {
             throw new Error("The Linked List is already empty!");
         }
@@ -136,7 +135,7 @@ class SinglyLinkedList<T> {
 
     }
 
-    removeFirst(): void {
+    removeFirst() {
         if (this.length === 0) {
             throw new Error("The Linked List is already empty!");
         }

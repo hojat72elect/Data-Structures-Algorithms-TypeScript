@@ -1,10 +1,7 @@
-// @flow
-/**
- * @template T : to let the JSDoc know a generic has been used here.
- */
-class Queue<T> {
 
-    _dataStore: Array<T>;
+class Queue {
+
+    _dataStore;
 
     constructor() {
         this._dataStore = [];
@@ -13,49 +10,49 @@ class Queue<T> {
     /**
      * User can only read the length of Queue, can't write to it.
      */
-    get length(): number {
+    get length() {
         return this._dataStore.length;
     }
 
     /**
-     * @param {T} element will be added at the end of the queue.
+     * @param element will be added at the end of the queue.
      */
-    enqueue(element: T) {
+    enqueue(element) {
         this._dataStore.push(element);
     }
 
     /**
-     * @returns {T} the first element of the queue (the oldest one) will be
+     * @returns the first element of the queue (the oldest one) will be
      * returned and removed from queue.
      */
-    dequeue(): T {
+    dequeue() {
         if (this._dataStore.length === 0)
             throw new Error("The queue is empty!");
         return this._dataStore.shift();
     }
 
     /**
-     * @returns {T|string} Just peeking to see what is the first element in line.
+     * @returns Just peeking to see what is the first element in line.
      */
-    peekFront(): T | string {
+    peekFront() {
         if (this._dataStore.length === 0)
             return "The queue is empty";
         return this._dataStore[0];
     }
 
     /**
-     * @returns {T|string} Just peeking to see what is the last element in this line.
+     * @returns Just peeking to see what is the last element in this line.
      */
-    peekBack(): T | string {
+    peekBack(){
         if (this._dataStore.length === 0)
             return "The queue is empty";
         return this._dataStore[this._dataStore.length - 1];
     }
 
     /**
-     * @returns {string} string representation of the Queue.
+     * @returns string representation of the Queue.
      */
-    toString(): string {
+    toString() {
         let retStr = "";
         for (let i = 0; i < this._dataStore.length; ++i) {
             let currentNodeValue: any = this._dataStore[i]; //type casting in JS is implicit

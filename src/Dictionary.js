@@ -1,28 +1,26 @@
-// @flow
 /**
  *
  * TODO: this isn't a good implementation; should be migrated to JS objects.
  * A Key-Value pair database that's supposed to be a better version
  * of JS Objects.
  *
- * @type {Dictionary|{}}
  */
-class Dictionary<K, V> {
-    _dataStore:Object;
+class Dictionary {
+    _dataStore;
 
     constructor() {
         this._dataStore = [];
     }
 
-    add(key:K, value:V) {
+    add(key, value) {
         this._dataStore[key] = value;
     }
 
-    find(key:K):V {
+    find(key) {
         return this._dataStore[key];
     }
 
-    remove(key:K) {
+    remove(key) {
         delete this._dataStore[key];
     }
 
@@ -30,24 +28,24 @@ class Dictionary<K, V> {
      *  The shown result is already sorted according to keys (incrementally).
      * @returns {string}
      */
-    showAll():string {
+    showAll() {
         let retStr = "";
-        (Object.keys(this._dataStore).sort()).forEach((key:string) => {
+        (Object.keys(this._dataStore).sort()).forEach((key) => {
             retStr += `* ${key} -> ${this._dataStore[key]} *`;
         })
         return retStr;
     }
 
-    count():number {
+    count() {
         let n = 0;
-        (Object.keys(this._dataStore)).forEach((key:string) => {
+        (Object.keys(this._dataStore)).forEach((key) => {
             n++;
         })
         return n;
     }
 
     clear() {
-        (Object.keys(this._dataStore)).forEach((key:string) => {
+        (Object.keys(this._dataStore)).forEach((key) => {
             delete this._dataStore[key];
         })
     }
