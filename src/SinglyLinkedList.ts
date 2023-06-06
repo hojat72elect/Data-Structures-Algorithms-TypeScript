@@ -16,7 +16,7 @@ class LinkedListNode {
  * providing a list of values to it. Otherwise, head
  * and tail will be null.
  */
-class SinglyLinkedList {
+export class SinglyLinkedList {
 
     headNode: LinkedListNode;
     tailNode: LinkedListNode;
@@ -152,4 +152,3 @@ class SinglyLinkedList {
     }
 }
 
-module.exports = SinglyLinkedList;

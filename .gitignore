@@ -9,3 +9,4 @@ lib/
 /src/Queue.js
 /test/Queue.test.js
 /src/SinglyLinkedList.js
+/test/SinglyLinkedList.test.js
