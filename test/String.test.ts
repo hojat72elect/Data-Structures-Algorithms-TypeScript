@@ -1,4 +1,4 @@
-describe('Stack unit tests', () => {
+describe('Just playing with built-in String in JS', () => {
 
     test('splitting a string into an array; letter by letter', () => {
         const myMotto = "The life is what it is, not what it should be.";
