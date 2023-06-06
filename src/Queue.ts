@@ -1,61 +1,60 @@
-
 class Queue {
 
-    _dataStore;
+    private dataStore: any[];
 
     constructor() {
-        this._dataStore = [];
+        this.dataStore = [];
     }
 
     /**
      * User can only read the length of Queue, can't write to it.
      */
     get length() {
-        return this._dataStore.length;
+        return this.dataStore.length;
     }
 
     /**
      * @param element will be added at the end of the queue.
      */
-    enqueue(element) {
-        this._dataStore.push(element);
+    enqueue(element: any) {
+        this.dataStore.push(element);
     }
 
     /**
      * @returns the first element of the queue (the oldest one) will be
      * returned and removed from queue.
      */
-    dequeue() {
-        if (this._dataStore.length === 0)
+    dequeue(): any {
+        if (this.dataStore.length === 0)
             throw new Error("The queue is empty!");
-        return this._dataStore.shift();
+        return this.dataStore.shift();
     }
 
     /**
      * @returns Just peeking to see what is the first element in line.
      */
-    peekFront() {
-        if (this._dataStore.length === 0)
+    peekFront(): any {
+        if (this.dataStore.length === 0)
             return "The queue is empty";
-        return this._dataStore[0];
+        return this.dataStore[0];
     }
 
     /**
      * @returns Just peeking to see what is the last element in this line.
      */
-    peekBack(){
-        if (this._dataStore.length === 0)
+    peekBack(): any {
+        if (this.dataStore.length === 0)
             return "The queue is empty";
-        return this._dataStore[this._dataStore.length - 1];
+        return this.dataStore[this.dataStore.length - 1];
     }
 
     /**
      * @returns string representation of the Queue.
      */
-    toString() {
+    toString(): string {
         let retStr = "";
-        for (let i = 0; i < this._dataStore.length; ++i) {
-            let currentNodeValue = this._dataStore[i]; //type casting in JS is implicit
+        for (let i = 0; i < this.dataStore.length; ++i) {
+            let currentNodeValue = this.dataStore[i]; //type casting in JS is implicit
 
             retStr += `${currentNodeValue}--`;
         }
@@ -63,7 +62,7 @@ class Queue {
     }
 
     clear() {
-        this._dataStore = [];
+        this.dataStore = [];
     }
 }
 

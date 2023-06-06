@@ -6,3 +6,4 @@ lib/
 /test/Array.test.js
 /test/Dictionary.test.js
 /test/Object.test.js
+/src/Queue.js
