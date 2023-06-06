@@ -1,4 +1,4 @@
-export class StackTS {
+export class Stack {
     private dataSource: any[];
     length: number;
 

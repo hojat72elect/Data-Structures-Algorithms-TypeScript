@@ -1,11 +1,11 @@
-import {StackTS} from "../StackTS";
+import {Stack} from "../Stack";
 
 describe('Stack unit tests', () => {
 
 
     test('Simply pushing and popping a Stack generates LIFO behavior and updates the length of the stack as well.', () => {
 
-        const exampleStack = new StackTS();
+        const exampleStack = new Stack();
         exampleStack.push("h");
         expect(exampleStack.length).toBe(1);
         exampleStack.push("o");
@@ -34,7 +34,7 @@ describe('Stack unit tests', () => {
 
     test("Popping an empty Stack should throw an error", () => {
 
-        const exampleStack = new StackTS();
+        const exampleStack = new Stack();
 
         expect(() => {
             exampleStack.pop();
@@ -44,7 +44,7 @@ describe('Stack unit tests', () => {
 
     test("Peeking into a Stack is safe, doesn't have side effects and wouldn't throw an error for empty Stack", () => {
 
-        const exampleStack = new StackTS();
+        const exampleStack = new Stack();
         expect(exampleStack.peek()).toBe(null);
 
         exampleStack.push(1);
@@ -60,7 +60,7 @@ describe('Stack unit tests', () => {
 
     test("Clearing a stack will throw away all data but keeps reference to the stack", () => {
 
-        const exampleStack = new StackTS();
+        const exampleStack = new Stack();
         exampleStack.push(12);
         exampleStack.push(5);
         exampleStack.push(41);
