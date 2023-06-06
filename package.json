@@ -1,7 +1,8 @@
 {
   "name": "data_structures_and_algorithms_javascript",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "code-coverage": " jest --coverage --coverageReporters='json-summary' "
   },
   "version": "1.0.0",
   "type": "module",
