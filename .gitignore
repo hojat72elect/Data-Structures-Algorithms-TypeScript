@@ -3,3 +3,4 @@ lib/
 /src/ts/Stack.js
 /test/String.test.js
 /test/Stack.test.js
+/test/Array.test.js
