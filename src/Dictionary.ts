@@ -5,22 +5,22 @@
  * of JS Objects.
  *
  */
-class Dictionary {
-    _dataStore;
+export class Dictionary {
+    _dataStore: any[];
 
     constructor() {
         this._dataStore = [];
     }
 
-    add(key, value) {
+    add(key: number | string, value: any) {
         this._dataStore[key] = value;
     }
 
-    find(key) {
+    find(key: number | string) {
         return this._dataStore[key];
     }
 
-    remove(key) {
+    remove(key: number | string) {
         delete this._dataStore[key];
     }
 
@@ -28,7 +28,7 @@ class Dictionary {
      *  The shown result is already sorted according to keys (incrementally).
      * @returns {string}
      */
-    showAll() {
+    showAll(): string {
         let retStr = "";
         (Object.keys(this._dataStore).sort()).forEach((key) => {
             retStr += `* ${key} -> ${this._dataStore[key]} *`;
@@ -36,7 +36,7 @@ class Dictionary {
         return retStr;
     }
 
-    count() {
+    count(): number {
         let n = 0;
         (Object.keys(this._dataStore)).forEach((key) => {
             n++;
@@ -51,4 +51,3 @@ class Dictionary {
     }
 }
 
-module.exports = Dictionary;

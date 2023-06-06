@@ -11,3 +11,5 @@ lib/
 /src/SinglyLinkedList.js
 /test/SinglyLinkedList.test.js
 /src/PriorityQueue.js
+/src/Dictionary.js
+/test/PriorityQueue.test.js

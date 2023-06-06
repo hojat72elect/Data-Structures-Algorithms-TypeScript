@@ -1,4 +1,4 @@
-const Dictionary = require('../src/Dictionary');
+import {Dictionary} from "../src/Dictionary";
 
 test("Normal behavior of Dictionary", () => {
 
