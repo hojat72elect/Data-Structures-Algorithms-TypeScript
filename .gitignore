@@ -13,3 +13,4 @@ lib/
 /src/PriorityQueue.js
 /src/Dictionary.js
 /test/PriorityQueue.test.js
+/test/Set.test.js
