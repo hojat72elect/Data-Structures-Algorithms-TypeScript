@@ -6,9 +6,11 @@ export class Queue {
         this.dataStore = [];
     }
 
+
     /**
      * User can only read the length of Queue, can't write to it.
      */
+    // @ts-ignore
     get length() {
         return this.dataStore.length;
     }
