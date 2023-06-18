@@ -14,3 +14,4 @@ lib/
 /src/Dictionary.js
 /test/PriorityQueue.test.js
 /test/Set.test.js
+/test/Generator.test.js
