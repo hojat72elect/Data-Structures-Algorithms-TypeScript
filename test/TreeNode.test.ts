@@ -1,4 +1,4 @@
-import {TreeNode} from "../src/Tree";
+import {TreeNode} from "../src/TreeNode";
 
 describe('Simple behavior of a Tree data structure', () => {
 
