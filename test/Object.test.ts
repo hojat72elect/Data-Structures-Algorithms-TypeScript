@@ -1,3 +1,7 @@
+const globalFunction = () => {
+    console.log("I am a global function.");
+    return this;
+}
 describe('Playing with JS Objects', () => {
 
     test('this test uses a JS object to represent a 3d point in the world', () => {
@@ -147,18 +151,32 @@ describe('Playing with JS Objects', () => {
         const initialObject = {
             title: "1984",
             author: "George Orwell",
-            isAvailableAtLibrary: false,
-            checkIn: function () {
-                this.isAvailableAtLibrary = true;
-            },
-            checkOut: function () {
-                this.isAvailableAtLibrary = false;
-            }
+            isAvailableAtLibrary: false
         };
         const finalObject = new Object(initialObject);
 
         expect(finalObject.title).toBe("1984");
         expect(finalObject.author).toBe("George Orwell");
+
+    })
+
+    test('the keyword "this" for various functions ', () => {
+
+        const myObject = {
+            functionInObject: function () {
+                console.log("I am a function that exists inside an object.");
+                return this
+            },
+        };
+
+        const functionInsideTest = () => {
+            console.log("I am a function inside a test body");
+            return this;
+        };
+
+        expect(typeof myObject.functionInObject()).toBe("object");
+        expect(functionInsideTest()).toBe(undefined);
+        expect(globalFunction()).toBe(undefined);
 
     })
 
