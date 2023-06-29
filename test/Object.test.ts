@@ -132,13 +132,34 @@ describe('Playing with JS Objects', () => {
 
         expect(typeof book).toBe('object');
         expect(book.isAvailableAtLibrary).toBe(false);
+        expect(book["isAvailableAtLibrary"]).toBe(false);
         book.checkIn();
-        expect(book.isAvailableAtLibrary).toBe(true);
+        expect(book["isAvailableAtLibrary"]).toBe(true);
         book.checkOut();
-        expect(book.isAvailableAtLibrary).toBe(false);
+        expect(book["isAvailableAtLibrary"]).toBe(false);
 
-        expect(book.title).toBe("1984");
-        expect(book.author).toBe("George Orwell");
+        expect(book["title"]).toBe("1984");
+        expect(book["author"]).toBe("George Orwell");
+    })
+
+    test('Creating a JS object out of another object', () => {
+
+        const initialObject = {
+            title: "1984",
+            author: "George Orwell",
+            isAvailableAtLibrary: false,
+            checkIn: function () {
+                this.isAvailableAtLibrary = true;
+            },
+            checkOut: function () {
+                this.isAvailableAtLibrary = false;
+            }
+        };
+        const finalObject = new Object(initialObject);
+
+        expect(finalObject.title).toBe("1984");
+        expect(finalObject.author).toBe("George Orwell");
+
     })
 
 });
