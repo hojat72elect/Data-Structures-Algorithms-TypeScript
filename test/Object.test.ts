@@ -109,6 +109,38 @@ describe('Playing with JS Objects', () => {
 
     })
 
+    test('Uses a JS object to represent a real world book', () => {
+
+        const book = {
+            title: "1984",
+            author: "George Orwell",
+            isAvailableAtLibrary: false,
+            /**
+             * The book will be returned to the library
+             */
+            checkIn: function () {
+                this.isAvailableAtLibrary = true;
+            },
+            /**
+             * The book will be checked out of the library (we imagine that the
+             * library has only one copy of this book).
+             */
+            checkOut: function () {
+                this.isAvailableAtLibrary = false;
+            }
+        };
+
+        expect(typeof book).toBe('object');
+        expect(book.isAvailableAtLibrary).toBe(false);
+        book.checkIn();
+        expect(book.isAvailableAtLibrary).toBe(true);
+        book.checkOut();
+        expect(book.isAvailableAtLibrary).toBe(false);
+
+        expect(book.title).toBe("1984");
+        expect(book.author).toBe("George Orwell");
+    })
+
 });
 
 
