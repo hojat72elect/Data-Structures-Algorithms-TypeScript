@@ -2,7 +2,6 @@
  * A 2D vector implemented in TypeScript. This is the exact vector we had in 2D
  * Cartesian coordinate system.
  */
-
 export class Vector2 {
     x: number;
     y: number;
