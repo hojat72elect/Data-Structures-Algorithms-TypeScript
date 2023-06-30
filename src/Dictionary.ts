@@ -38,7 +38,7 @@ export class Dictionary {
 
     count(): number {
         let n = 0;
-        (Object.keys(this._dataStore)).forEach((key) => {
+        (Object.keys(this._dataStore)).forEach((_) => {
             n++;
         })
         return n;
