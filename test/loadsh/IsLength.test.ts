@@ -1,4 +1,3 @@
-import {getTag} from "../../src/lodash/internal/GetTag";
 import {isLength} from "../../src/lodash/IsLength";
 import {MAX_SAFE_INTEGER} from "../../src/lodash/internal/Constants";
 
