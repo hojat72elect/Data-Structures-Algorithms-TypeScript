@@ -155,7 +155,9 @@ describe('Playing with JS Objects', () => {
         };
         const finalObject = new Object(initialObject);
 
+        // @ts-ignore
         expect(finalObject.title).toBe("1984");
+        // @ts-ignore
         expect(finalObject.author).toBe("George Orwell");
 
     })
