@@ -4,6 +4,8 @@
     "target": "es5",
     "sourceMap": true,
     "outDir": "./dist/out-tsc",
+    "noImplicitAny": true,
+    "strictNullChecks": true,
   },
   "exclude": [
     "node_modules"
